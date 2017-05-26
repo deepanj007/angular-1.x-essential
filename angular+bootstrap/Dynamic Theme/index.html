@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- define our app and controller on html -->
+<html ng-app="linkApp" ng-controller="mainController">
+
+<head>
+
+    <!-- pull in css based on angular -->
+    <link rel="stylesheet" ng-href="themes/{{ css }}/bootstrap.min.css">
+    <link rel="stylesheet" ng-href="css/layout-{{ layout }}.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+
+    <!-- bring in JS and angular -->
+    <script src="lib/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body class="container">
+
+    <!-- section to select styles -->
+    <div class="well">
+        <form>
+            <div class="form-group">
+                <label>Theme</label>
+                <select class="form-control" ng-model="css" ng-options="bootstrap.url as bootstrap.name for bootstrap in bootstraps">
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Layout</label>
+                <select class="form-control" ng-model="layout" ng-options="layout.url as layout.name for layout in layouts"></select>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- our content -->
+    <div class="picture-thing">
+        <div class="picture-thing-img">
+            <img src="img/Sports-Car-Wallpapers-6.jpg">
+        </div>
+        <div class="picture-thing-content">
+            <h2>Bananas</h2>
+            <p>This demo is just that.</p>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="productModule">
+<head>
+<style>
+table,#secondaryDiv,#midMidDiv
+{ 
+    margin-left: auto;
+    margin-right: auto;
+	border-collapse: collapse;
+}
+td {
+    border: 1px solid grey;
+	
+}
+th, #secondaryDivButton {
+	background-color: #195C7C;
+	color: white;
+}
+#cellPadding{
+	padding-left:15px;
+	padding-right:15px;
+}
+#header{
+color: white;
+}
+</style>
+	<script src = "lib/angular.min.js"></script>
+	<script src = "lib/dirPagination.js"></script>
+	<script src = "module/module.js"></script>
+	<script src = "controller/pageSettingController.js"></script>
+	<script src = "service/pageSettingService.js"></script>
+</head>
+<body ng-controller="pageSettingController">
+<!--Body of page will be here
+	datas coming from controller will populate the table-->
+	<div ng-init="init()" style="padding-bottom:10px">
+	<table style="width:95%">
+		    <th id="header">Actions</th>
+			<th><input type="checkbox"/></th> 
+			<th><a id="header" href="" ng-click="orderByField='PartNo'; reverseSort = !reverseSort">Part Number</a></th>
+			<th><a id="header" href="" ng-click="orderByField='CCAnalyst'; reverseSort = !reverseSort">CC Analyst</a></th>
+			<th><a id="header" href="" ng-click="orderByField='FUAnalyst'; reverseSort = !reverseSort">FU Analyst</a></th>
+			<th><a id="header" href="" ng-click="orderByField='CCode'; reverseSort = !reverseSort">Com Code</a></th>
+			<th><a id="header" href="" ng-click="orderByField='Wcenter'; reverseSort = !reverseSort">Work Center</a></th>
+			<th><a id="header" href="" ng-click="orderByField='LCycleDate'; reverseSort = !reverseSort">Last Cycle Date</a></th>
+			<th><a id="header" href="" ng-click="orderByField='RegCountDate'; reverseSort = !reverseSort">Req Count Date</a></th>
+			<th><a id="header" href="" ng-click="orderByField='CLoTs'; reverseSort = !reverseSort">Count LoTs</a></th>
+			<th><a id="header" href="" ng-click="orderByField='includeNCP'; reverseSort = !reverseSort">Include NCP</a></th>
+			<th><a id="header" href="" ng-click="orderByField='FClass'; reverseSort = !reverseSort">Float Class</a></th>
+			<th><a id="header" href="" ng-click="orderByField='PartStatus'; reverseSort = !reverseSort">Part Status</a></th>
+			<th><a id="header" href="" ng-click="orderByField='PartType'; reverseSort = !reverseSort">Part Type</a></th>
+			<th><a id="header" href="" ng-click="orderByField='RecountInd'; reverseSort = !reverseSort">Recount Ind</a></th>
+			<th><a id="header" href="" ng-click="orderByField='SCode'; reverseSort = !reverseSort">Source Code</a></th>
+			<th><a id="header" href="" ng-click="orderByField='CFreqncy'; reverseSort = !reverseSort">Cycle Frequency</a></th> 
+			<th><a id="header" href="" ng-click="orderByField='DropdownValue'; reverseSort = !reverseSort">Dropdown</a></th> 
+			
+			<tr dir-paginate="item in items | orderBy:orderByField:reverseSort | itemsPerPage: pageSize ">
+			<td id="cellPadding"><a href="#">Actions</a></td>
+			<td id="cellPadding"><input type="checkbox"/></td>
+			<td id="cellPadding">{{item.PartNo}}</td>
+			<td id="cellPadding">{{item.CCAnalyst}}</td>
+			<td id="cellPadding">{{item.FUAnalyst}}</td>
+			<td id="cellPadding">{{item.CCode}}</td>
+			<td id="cellPadding">{{item.Wcenter}}</td>
+			<td id="cellPadding">{{item.LCycleDate}}</td>
+			<td id="cellPadding">{{item.RegCountDate}}</td>
+			<td id="cellPadding">{{item.CLoTs}}</td>
+			<td id="cellPadding">{{item.includeNCP}}</td>
+			<td id="cellPadding">{{item.FClass}}</td>
+			<td id="cellPadding">{{item.PartStatus}}</td>
+			<td id="cellPadding">{{item.PartType}}</td>
+			<td id="cellPadding">{{item.RecountInd}}</td>
+			<td id="cellPadding">{{item.SCode}}</td>
+			<td id="cellPadding">{{item.CFreqncy}}</td>	
+			<td id="cellPadding"><select ng-model="letter" ng-options="letter for letter in letters"></select></td>
+			</tr>
+	</table>
+	<div id="midDiv" style="padding-bottom :30px;width:103%;margin:-10px">
+		<div style="float:left;width:20%;padding:15px;margin-left:25px">
+			<label>Showing results per page:</label>
+			<a ng-click = "page1stPart();" style="cursor: pointer;">5</a>|
+			<a ng-click = "page2ndPart();" style="cursor: pointer;">10</a>|
+			<a ng-click = "page3rdPart();" style="cursor: pointer;">25</a>|
+			<a ng-click = "page4thPart();" style="cursor: pointer;">50</a>
+		</div> 
+		<div id="midMidDiv" style="width:20%;padding-top:15px;">
+		<label>showing records : {{pageSize}}</label>
+		</div>
+		
+		<div style="float:right;width:20%;margin-top:-35px">
+         <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls> 
+		</div> 
+	</div>
+	</div></br>		
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <link rel="stylesheet" href="lib/bootstrap.min.css" />
+  
+  <script src="lib/jquery-1.10.2.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <script src="lib/angular.min.js"></script>
+  <script src="script.js"></script>
+ 
+</head>
+<body ng-controller='modalController'>
+	<button style = "margin:5px;" class = "btn btn-sm" ng-click = "toggleModal()">model</button>
+	<generic-modal visible="showModal">
+    
+		<table style="width:80%">
+			<tr>
+				<td>Family Plant</td>
+				<td>950A-UK</td>
+			</tr>
+			<tr>
+				<td>Function Code</td>
+				<td>G20100</td>
+			</tr>
+		</table></br>
+		<table style="width:100%">
+		<tr>
+			<th style="color:white;background-color:grey">Given Away SC</th>
+			<th style="color:white;background-color:grey">APN</th>
+		</tr>
+			<tr>
+				<td>AA10-BE</td>
+				<td>101</td>
+			</tr>
+			<tr>
+				<td>PK10-AU</td>
+				<td>121</td>
+			</tr>
+			<tr>
+				<td>LK40-ST</td>
+				<td>353</td>
+			</tr></tbody>
+		</table>
+	 </generic-modal>
+</body>
+</html>

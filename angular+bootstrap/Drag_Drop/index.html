@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html ng-app="plunker">
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Drag_Drop</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="lib/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="lib/draganddrop.js"></script>
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"> -->
+  </head>
+  <body >
+    <div class="container" ng-controller="MainCtrl">
+        <div class="row topRow">
+            <h4 class="heading">
+                Drag and drop between the two lists.
+            </h4>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <ul ui-on-Drop="onDrop($event,$data,men)">
+                    <li ui-draggable="true" drag="item" 
+                    on-drop-success="dropSuccessHandler($event,$index,men)"
+                    ng-repeat="item in men">
+                     {{item}}
+                    </li>
+                </ul>
+            </div>
+			
+            <div class="col-xs-6">
+                <ul ui-on-Drop="onDrop($event,$data,women)">
+                    <li ui-draggable="true" drag="item" 
+                    on-drop-success="dropSuccessHandler($event,$index,women)"
+                    ng-repeat="item in women track by $index">
+                     {{item}}
+                    </li>
+                </ul>
+            </div>
+			
+        </div>
+    </div>
+  </body>
+</html>

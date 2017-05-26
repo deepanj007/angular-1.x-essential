@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/jquery-1.10.2.min.js"></script>
+  <script src="lib/bootstrap.min.js"></script>
+  <!-- <script src="https://code.angularjs.org/1.2.5/i18n/angular-locale_da-dk.js"></script> -->
+  
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+	<script src="module/myApp.js"></script>
+	<script src="controller/myController.js"></script>
+   <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  <!-- .affix {
+      top: 0;
+      width: 100%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  } -->
+  </style>
+</head>
+<body ng-controller = "myController">
+
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav"   ng-repeat="eachName in allNames">
+        <!-- <li class="active"><a href="#">Home</a></li> -->
+        <li><a href="#">{{eachName}}</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div ng-view></div>
+</body>
+</html>

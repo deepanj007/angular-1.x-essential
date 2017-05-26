@@ -1,0 +1,19 @@
+<!-- <!DOCTYPE html> -->
+<html ng-app="myApp">
+
+<head>
+  <link rel="stylesheet" href="lib/bootstrap.min.css" />
+  <script data-semver="1.2.15" src="lib/angular.min.js"></script>
+  <script  src="lib/angular-ui-router.js"></script>
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <script src="script.js"></script>
+  <script src="lib/uiBreadcrumbs.js"></script>
+  <script src="userService.js"></script>
+</head>
+<ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="uiBreadcrumbs.tpl.html"></ui-breadcrumbs>
+<div class="container">
+  <div ui-view="main"></div>
+  <div ui-view="sub"></div>
+</div>
+
+</html>

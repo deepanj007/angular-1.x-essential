@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Example - range input</title>
+  <script src="lib/angular.min.js"></script>
+  <script data-require="angular-ui-bootstrap@0.11.0" data-semver="0.11.0" src="lib/ui-bootstrap.min.js"></script>
+  <link data-require="bootstrap-css@3.2.0" data-semver="3.2.0" rel="stylesheet" href="lib/ui-bootstrap.min.css" />
+  <script src="script.js"></script>
+  <style>
+    pre {
+      overflow: auto;
+      word-wrap: normal;
+      white-space: pre;
+    }
+  </style>
+</head>
+
+<body ng-app="myApp">
+  <div class="container" ng-controller="myCtrl">
+    <h1>angular bootstrap dropdown in a table cell</h1>
+    <br />
+    <br />
+    <br />
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table">
+          <thead>
+            <tr>
+			  <th>Select Box</th>
+              <th>Id</th>
+              <th>Names</th>
+              <th>#</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="row in rows">
+			  <td><input type="checkbox"/></td>
+              <td>{{row}}</td>
+              <td>Name</td>
+              <td>
+				   <select 
+					ng-options="p.first + ' ' + p.last for p in people"
+					ng-model="selectedPerson"></select>{{selectedPerson.actor}}
+ 
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
